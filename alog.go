@@ -48,8 +48,8 @@ L:
 		case msg := <-al.msgCh:
 			w.Add(1)
 			go al.write(msg, w)
-			w.Wait()
 		case <-al.shutdownCh:
+			w.Wait()
 			al.shutdown()
 			break L
 		}
